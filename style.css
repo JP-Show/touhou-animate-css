@@ -1,0 +1,149 @@
+:root {
+  --c-texting: rgb(242, 249, 255);
+  --c-texting2: hsla(250, 50%, 80%, 1);
+  --c-background: hsla(237, 22%, 20%, 1);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 400;
+  background: var(--c-background);
+  padding: 23px;
+}
+.page {
+  margin: 5rem auto;
+  min-width: 330px;
+  max-width: 1000px;
+  text-align: center;
+}
+
+header {
+  animation: topdown 400ms 150ms backwards;
+}
+
+header h1 {
+  color: var(--c-texting);
+  font-weight: 800;
+  letter-spacing: -1px;
+  font-weight: 800;
+  font-size: 3.5rem;
+  line-height: 4rem;
+}
+
+header p {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  line-height: 2rem;
+  color: var(--c-texting2);
+}
+
+main {
+  margin-top: 5rem;
+  display: grid;
+  gap: 2rem;
+
+  animation: downtop 400ms 150ms backwards;
+
+  /* animation-name: downtop;
+  animation-delay: 150ms;
+  animation-duration: 400ms;
+  animation-fill-mode: backwards; */
+}
+
+.cards {
+  position: relative;
+  margin: 0 auto;
+  width: 20.5rem;
+}
+
+.cards img {
+  height: 26rem;
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  filter: brightness(0.8);
+}
+
+.cards:hover {
+  transform: scale(1.03);
+  transition: transform 200ms;
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+.cards:hover img {
+  filter: brightness(1);
+}
+
+.cards h2,
+.cards span {
+  position: absolute;
+  left: 1.5rem;
+}
+
+.cards h2 {
+  bottom: 3rem;
+
+  font-weight: 800;
+  font-size: 2.5rem;
+  line-height: 3rem;
+
+  color: var(--c-texting);
+  text-transform: uppercase;
+  text-shadow: 1.5px 1.5px black;
+}
+
+.cards span {
+  color: var(--c-background);
+
+  line-height: 2rem;
+  bottom: 8rem;
+  line-height: 2rem;
+
+  background-color: var(--c-texting);
+  border-radius: 1rem;
+  padding: 1px 1rem;
+}
+
+@media (min-width: 700px) {
+  main {
+    grid-template-areas: 'A B' 'C D';
+  }
+  main .div:nth-child(1) {
+    grid-area: A;
+  }
+  main .div:nth-child(2) {
+    grid-area: B;
+  }
+  main .div:nth-child(3) {
+    grid-area: C;
+  }
+  main .div:nth-child(4) {
+    grid-area: D;
+  }
+}
+
+@keyframes topdown {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+@keyframes downtop {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
